@@ -95,7 +95,7 @@ public class ShiftPuzzle implements MouseListener {
     //gets the 4X4 puzzle board ready to play
     public void initializeBoard(){
         //sets the number of times the board shuffles
-        for (int i=0; i<5; i++)
+        for (int i=0; i<10; i++)
         {
             shuffleBoard();
             System.out.println("initialize FOR");
