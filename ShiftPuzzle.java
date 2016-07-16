@@ -23,7 +23,6 @@ public class ShiftPuzzle implements MouseListener {
     boolean done = false;
     
     public ShiftPuzzle() {  //constructor
-        System.out.println("constructor");
         background = new ImageIcon ("background.jpg");  //background
         full = new ImageIcon ("full.jpg");  //full picture
         banner = new ImageIcon ("banner.jpg");  //ending banner
@@ -37,11 +36,8 @@ public class ShiftPuzzle implements MouseListener {
         draw.addMouseListener(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(maxx, maxy);
-        System.out.println("hi");
         store();
         initializeBoard();
-        
-        System.out.println("HI");
         
         //button to reshuffle board (Start over)
         JPanel panel = new JPanel();
@@ -66,7 +62,6 @@ public class ShiftPuzzle implements MouseListener {
                 new MouseAdapter(){
                     public void mouseClicked (MouseEvent e){
                         done = false;
-                        System.out.println("MORE");
                         initializeBoard();
                     }
                 }
@@ -81,7 +76,6 @@ public class ShiftPuzzle implements MouseListener {
             for (int j=0; j<board[0].length;j++)
                 board[i][j] = originalBoard[i][j];
         done = false;
-        System.out.println("reset");
         initializeBoard();
     }//reset method
     
@@ -98,9 +92,7 @@ public class ShiftPuzzle implements MouseListener {
         for (int i=0; i<10; i++)
         {
             shuffleBoard();
-            System.out.println("initialize FOR");
         }
-        System.out.println("in DONE");
     }//initlizeBoard method
     
     //finds a blank spot and picks a tile randomely to move into it
@@ -109,7 +101,6 @@ public class ShiftPuzzle implements MouseListener {
         int chosenRow = blankRow;
         int chosenCol = blankCol;
         int chance;
-System.out.println("shuffle");
         do{ //prevents repetition in shuffle
             chosenRow = blankRow;
             chosenCol = blankCol;
@@ -188,7 +179,6 @@ System.out.println("shuffle");
         board[blankRow][blankCol]=board[chosenRow][chosenCol];
         board[chosenRow][chosenCol]=0;
         
-        System.out.println("Shuffle end");
     }//shuffleBoard
     
     //finds where blank spot is and stores its row and col into blankRow and blankCol
@@ -203,7 +193,6 @@ System.out.println("shuffle");
                 }
             }
         }
-        System.out.println("blank");
     }//findBlank method
     
     //moves the chosen (mouse-clicked) tile into a blank spot if possible
